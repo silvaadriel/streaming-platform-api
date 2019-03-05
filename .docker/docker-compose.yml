@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  postgres:
+    build: .
+    volumes:
+      - ../.:/usr/platform-backend
+      - ./postgres-data:/var/lib/postgresql/data
+    expose:
+      - 5432
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=adonis
+      - PGDATA=/var/lib/postgresql/data
